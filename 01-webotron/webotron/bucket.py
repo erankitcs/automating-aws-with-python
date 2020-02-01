@@ -25,6 +25,10 @@ class BucketManager:
         )
         self.manifest = {}
 
+    def get_bucket(self, bucket_name):
+        """Get a bucket by name."""
+        return self.s3.Bucket(bucket_name)
+
     def get_region_name(self, bucket):
         """Get the region name for this bucket."""
         bucket_client = self.s3.meta.client
