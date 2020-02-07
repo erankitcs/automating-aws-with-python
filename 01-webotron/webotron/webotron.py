@@ -109,7 +109,6 @@ def find_cert(domain):
 def setup_cdn(domain, bucket):
     """To Setup a cloud frot for given domain and bucket."""
     dist = dist_manager.find_matching_dist(domain)
-    print("Distribution aleady exists. Creating Alias Record.")
     if not dist:
         cert = cert_manager.find_matching_cert(domain)
         if not cert:
@@ -118,6 +117,9 @@ def setup_cdn(domain, bucket):
         dist = dist_manager.create_dist(domain, cert)
         print("Waiting for distribution deployment...")
         dist_manager.await_deploy(dist)
+    else:
+        print("Distribution aleady exists. Creating Alias Record.")
+
     zone = domain_manager.find_hosted_zones(domain) \
         or domain_manager.create_hosted_zone(domain)
     domain_manager.create_cf_domain_record(zone, domain, dist['DomainName'])
