@@ -9,6 +9,7 @@ pycodestyle = "*"
 pylint = "*"
 pydocstyle = "*"
 pyflakes = "*"
+setuptools = "*"
 
 [packages]
 boto3 = "*"

@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
+"""Classes for Route 53 domains."""
 
 import uuid
 
 
-"""Classes for Route 53 domains."""
 class DomainManager:
     """Manage a Route 53 domain."""
+
     def __init__(self, session):
         """Create DomainManager object."""
         self.session = session
@@ -29,7 +30,7 @@ class DomainManager:
         )
 
     def create_s3_domain_record(self, zone, domain_name, endpoint):
-        """Create S3 domain record set"""
+        """Create S3 domain record set."""
         return self.client.change_resource_record_sets(
             HostedZoneId=zone['Id'],
             ChangeBatch={
@@ -42,6 +43,28 @@ class DomainManager:
                             'AliasTarget': {
                                 'HostedZoneId': endpoint.zone,
                                 'DNSName': endpoint.host,
+                                'EvaluateTargetHealth': False
+                            }
+                        }
+                    }
+                ]
+            }
+        )
+
+    def create_cf_domain_record(self, zone, domain_name, cf_domain):
+        """Create CloudFront domain record set."""
+        return self.client.change_resource_record_sets(
+            HostedZoneId=zone['Id'],
+            ChangeBatch={
+                'Comment': 'Created by Webotron.',
+                'Changes': [{
+                        'Action': 'UPSERT',
+                        'ResourceRecordSet': {
+                            'Name': domain_name,
+                            'Type': 'A',
+                            'AliasTarget': {
+                                'HostedZoneId': 'Z2FDTNDATAQYW2',
+                                'DNSName': cf_domain,
                                 'EvaluateTargetHealth': False
                             }
                         }
