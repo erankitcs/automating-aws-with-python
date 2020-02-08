@@ -149,6 +149,9 @@ class BucketManager:
         if self.manifest.get(key, '') == etag:
             print("Skipping {}, etag match".format(key))
             return
+        print(
+            'File has been successfully added : {}'.format(key)
+        )
         return bucket.upload_file(
                 path,
                 key,
@@ -166,7 +169,6 @@ class BucketManager:
                 },
             RequestPayer='Webotron'
             )
-        print(response)
         for item in response['Deleted']:
             print(
                 'File has been successfully deleted : {}'.format(item['Key'])
@@ -207,7 +209,8 @@ class BucketManager:
                 if key not in directory_flist:
                     key_dic = {'Key': key}
                     files_delete.append(key_dic)
-            self.delete_files(bucket, files_delete)
+            if files_delete:
+                self.delete_files(bucket, files_delete)
 
         handle_directory(root)
         handle_bucket(self.file_list_source, self.manifest)

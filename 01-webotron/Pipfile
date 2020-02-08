@@ -10,6 +10,7 @@ pylint = "*"
 pydocstyle = "*"
 pyflakes = "*"
 setuptools = "*"
+twine = "*"
 
 [packages]
 boto3 = "*"

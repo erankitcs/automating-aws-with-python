@@ -81,6 +81,7 @@ def setup_bucket(bucket):
 def sync(pathname, bucket):
     """Sync contents from Path to Bucket."""
     bucket_manager.sync(pathname, bucket)
+    print('Sync is successful. Your bucket URL is:')
     print(bucket_manager.get_bucket_url(bucket_manager.s3.Bucket(bucket)))
 
 
@@ -118,7 +119,7 @@ def setup_cdn(domain, bucket):
         print("Waiting for distribution deployment...")
         dist_manager.await_deploy(dist)
     else:
-        print("Distribution aleady exists. Creating Alias Record.")
+        print("Distribution already exists. Creating Alias Record.")
 
     zone = domain_manager.find_hosted_zones(domain) \
         or domain_manager.create_hosted_zone(domain)
