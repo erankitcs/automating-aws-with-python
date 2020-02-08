@@ -9,7 +9,7 @@ setup(
     license='MIT',
     packages=['webotron'],
     url='https://github.com/erankitcs/automating-aws-with-python',
-    download_url='https://github.com/erankitcs/automating-aws-with-python/archive/v0.1.tar.gz',
+    download_url='https://github.com/erankitcs/automating-aws-with-python/archive/v0.2.tar.gz',
     keywords = ['AWS', 'BOTO3', 'S3Website','CloudFront'],
     install_requires=[
         'click',
