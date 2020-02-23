@@ -16,3 +16,11 @@ Webotron currently has the following features:
 - Set AWS profile with --profile=<profile_name>
 - Configure route 53 domain
 - Configure Cloud Front distribution with SSL
+
+## 02-notifon
+
+Notifon is a project to notify Slack users of changes to your AWS account using CloudWatch Events
+
+### Features
+
+Notifon currently has the following features:
