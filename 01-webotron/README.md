@@ -17,6 +17,9 @@ Webotron currently has the following features:
 - Configure route 53 domain
 - Configure Cloud Front distribution with SSL
 
+![Screenshot](Webotron-Arch-Diagram.png)
+
+
 ##Installation
 pip install webotron-20
 
