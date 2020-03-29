@@ -17,6 +17,8 @@ Webotron currently has the following features:
 - Configure route 53 domain
 - Configure Cloud Front distribution with SSL
 
+![Screenshot](01-webotron/Webotron-Arch-Diagram.png)
+
 ## 02-notifon
 
 Notifon is a project to notify Slack users of changes to your AWS account using CloudWatch Events
