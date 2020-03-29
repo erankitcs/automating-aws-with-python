@@ -9,4 +9,4 @@ Videolyzer currently has the following features:
 - Trigger event from S3 to Lambda Function to start Video Processing.
 - Use SNS to identify completion of Label Detection Job and save into DynamoDB.
 
- 
+ ![Screenshot](VideoLabelDetector_Arc_Diagram.png)
