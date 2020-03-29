@@ -8,3 +8,5 @@ Videolyzer currently has the following features:
 - Upload Video to S3 bucket.
 - Trigger event from S3 to Lambda Function to start Video Processing.
 - Use SNS to identify completion of Label Detection Job and save into DynamoDB.
+
+ 
